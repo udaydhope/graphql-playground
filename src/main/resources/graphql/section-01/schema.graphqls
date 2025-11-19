@@ -1,0 +1,12 @@
+type Query {
+    #This means we are calling  endpoint called sayHello if you call this i will give you string message
+    #In Rest if you say calling with https://localhost:9090/sayHello ..
+     #you need have some requestmapping and return the object or string.... The same way we have to in graphQL
+    sayHello: String
+
+    # This is configure the graphql endpoint with parameter name of type String and return type String
+    sayHelloTo(name: String!): String
+
+    randomNumber : Int
+
+}

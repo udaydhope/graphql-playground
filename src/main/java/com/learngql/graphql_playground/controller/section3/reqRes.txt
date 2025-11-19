@@ -1,0 +1,174 @@
+Request 1
+
+{
+  getAllNewCustomers
+  {
+    id,
+    name,
+    age,
+    orders
+    {
+      id,
+      description
+    }
+  }
+}
+
+
+Response ---
+
+{
+  "data": {
+    "getAllNewCustomers": [
+      {
+        "id": "1",
+        "name": "Alice",
+        "age": 30,
+        "orders": [
+          {
+            "id": "24cafca1-f3e3-48c6-9e7f-00ae19ed9d8c",
+            "description": "Order 1 for Alice"
+          },
+          {
+            "id": "ee36e9b6-bc1a-48ca-bbab-891ec89fd951",
+            "description": "Order 2 for Alice"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "name": "Bob",
+        "age": 25,
+        "orders": [
+          {
+            "id": "2951bc12-f98a-4616-913f-7d9139623389",
+            "description": "Order 1 for Bob"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "name": "Charlie",
+        "age": 35,
+        "orders": []
+      },
+      {
+        "id": "4",
+        "name": "Diana",
+        "age": 28,
+        "orders": []
+      }
+    ]
+  }
+}
+
+
+if you see in herer for the 3 and 4 the orders is coming as empty list as we have not added any orders for these customers yet.
+
+=========================================================================================
+
+
+reqyest 2 :
+
+{
+  getAllNewCustomers
+  {
+    id,
+    name,
+    age,
+
+  }
+}
+
+
+response 2
+
+{
+  "data": {
+    "getAllNewCustomers": [
+      {
+        "id": "1",
+        "name": "Alice",
+        "age": 30
+      },
+      {
+        "id": "2",
+        "name": "Bob",
+        "age": 25
+      },
+      {
+        "id": "3",
+        "name": "Charlie",
+        "age": 35
+      },
+      {
+        "id": "4",
+        "name": "Diana",
+        "age": 28
+      }
+    ]
+  }
+}
+
+=====================================================================
+
+
+we can have the limit as well
+
+{
+  getAllNewCustomers
+  {
+    id,
+    name,
+    age,
+    orders(limit: 1)
+    {
+      id,
+      description
+    }
+  }
+}
+
+
+
+Response :::
+{
+  "data": {
+    "getAllNewCustomers": [
+      {
+        "id": "1",
+        "name": "Alice",
+        "age": 30,
+        "orders": [
+          {
+            "id": "5a1fb2ca-9991-4c6f-ab57-10404d1a2392",
+            "description": "Order 1 for Alice"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "name": "Bob",
+        "age": 25,
+        "orders": [
+          {
+            "id": "62523136-9597-44ef-b966-b1b7ac6c4d95",
+            "description": "Order 1 for Bob"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "name": "Charlie",
+        "age": 35,
+        "orders": []
+      },
+      {
+        "id": "4",
+        "name": "Diana",
+        "age": 28,
+        "orders": []
+      }
+    ]
+  }
+}

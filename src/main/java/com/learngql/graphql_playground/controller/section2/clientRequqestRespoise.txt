@@ -1,0 +1,134 @@
+Request 1
+
+{
+  getCustomers {
+    id
+  }
+
+}
+
+Response 1
+
+{
+  "data": {
+    "getCustomers": [
+      {
+        "id": "1"
+      },
+      {
+        "id": "2"
+      },
+      {
+        "id": "3"
+      }
+    ]
+  }
+}
+
+==========================================
+
+Request 2
+
+{
+  getCustomers {
+    id
+    name
+    email
+    age
+  }
+}
+
+
+Reponse :
+
+{
+  "data": {
+    "getCustomers": [
+      {
+        "id": "1",
+        "name": "John Doe",
+        "age": 30,
+        "city": "New York"
+      },
+      {
+        "id": "2",
+        "name": "Jane Smith",
+        "age": 25,
+        "city": "Los Angeles"
+      },
+      {
+        "id": "3",
+        "name": "Mike Johnson",
+        "age": 40,
+        "city": "Chicago"
+      },
+      {
+        "id": "4",
+        "name": "Emily Davis",
+        "age": 35,
+        "city": "Houston"
+      }
+    ]
+  }
+}
+
+
+==========================================
+
+Request 3
+
+{
+  getCustomerById(id: 2) {
+    id,
+    name
+  }
+}
+
+
+Response 3 :
+
+{
+  "data": {
+    "getCustomerById": {
+      "id": "2",
+      "name": "Jane Smith"
+    }
+  }
+}
+
+==========================================
+
+
+Reqquest = 4 :
+
+{
+  getCustomersByAgeRange(ageByRangeFilter:  {
+     maxAge:  30
+     minAge:  10
+  }) {
+    id,
+    name,
+    age
+  }
+}
+
+
+Response 4 :
+
+{
+  "data": {
+    "getCustomersByAgeRange": [
+      {
+        "id": "1",
+        "name": "John Doe",
+        "age": 30
+      },
+      {
+        "id": "2",
+        "name": "Jane Smith",
+        "age": 25
+      }
+    ]
+  }
+}
+

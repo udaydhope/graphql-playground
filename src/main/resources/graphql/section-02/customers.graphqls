@@ -1,0 +1,27 @@
+type Customer {
+    id : ID
+    name: String
+    age: Int
+    city: String
+}
+
+# why we used already the query in the section1 so we need to extend the query here
+extend type Query {
+    #Get all customers
+    getCustomers: [Customer!]
+    getCustomerById(id: ID!): Customer
+    getCustomersByName(name : String!) : [Customer]
+
+    # This is one endpoint we have this by age range , what if you have multiple parameters like 10 fileds it annoying right we can rceate atype
+    ##getCustomersByAgeRange(minAge: Int!, maxAge: Int!): [Customer]!
+
+    getCustomersByAgeRange(ageByRangeFilter: AgeRangeFilter!): [Customer]!
+}
+
+# why we dont use the type here beacuse the type is used to define the object structure , input is used to define the input structure where we are passing the data , But the type is just looks like input but there can be functions , unionrs and other stuff
+input AgeRangeFilter {
+    minAge: Int!
+    maxAge: Int!
+}
+
+
