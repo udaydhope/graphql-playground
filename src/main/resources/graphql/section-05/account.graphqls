@@ -1,0 +1,9 @@
+type Account {
+    accountNumber: ID
+    type: AccountType
+    amount: Int
+}
+enum AccountType {
+    SAVINGS
+    CURRENT
+}

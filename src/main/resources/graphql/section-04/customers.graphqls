@@ -1,0 +1,18 @@
+type NewCustomer1 {
+    id : ID
+    name: String
+    age: Int
+    city: String
+    orders1 : [NewCustomerOrder1]! # if you see this this custoemr has list of order by in our java class it need not be as like this
+    #orders1(limit: Int!): [NewCustomerOrder1]! ## its just that we adding one limit parameter
+}
+
+type NewCustomerOrder1 {
+    id: ID
+    description: String
+}
+
+extend type Query {
+    getAllNewCustomers1: [NewCustomer1!]
+
+}
